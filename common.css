@@ -1,0 +1,35 @@
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+*::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border: 0px none #ffffff;
+  border-radius: 84px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body {
+  font-family: "Roboto", "Apple Color Emoji", "Segoe UI", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+.MainDocument {
+  height: 100vh;
+  display: flex;
+}
+
+html {
+  --color-primary: rgb(51,144,236);
+}

@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./common.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/imgs/logo.ico" type="image/x-icon">
+    <title>Login</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: #f7f7f7;
+        --blue-color: #45a5e3;
+    }
+    .main {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .RegButton {
+        background-color: var(--blue-color);
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+        padding: 12px 29px;
+        border-radius: 30px;
+        transition: opacity .1s linear;
+    }
+    .RegButton:hover {
+        opacity: 0.9;
+    }
+    .FieldInput {
+        border-width: 0;
+        border-style: solid;
+        border-color: grey;
+        border-bottom-width: 2px;
+        outline: none;
+        background-color: transparent;
+        padding: 5px 10px;
+        font-size: 16px;
+        width: 150px;
+    }
+    .FieldInput:focus {
+        border-color: var(--blue-color);
+    }
+    .FieldRaw {
+        display: flex;
+        justify-content: center;
+        margin: 60px 0;
+        align-items: flex-end;
+    }
+
+</style>
+<body>
+    <div class="main">
+        <img src="./imgs/logo.webp" style="width: 120px">
+        <h3>Login</h3>
+        <div style="width: 300px">
+            <div class="FieldRaw">  
+                <input class="FieldInput" placeholder="Phone number">
+            </div>
+        </div>
+        <div class="RegButton" onclick="login()">Login</div>
+    </div>
+    <a style="position: absolute; bottom: 20px; right: 20px; cursor: pointer;" href="/register">To registration</a>
+</body>
+<script>
+    const loginFieldInput = document.querySelector('.FieldInput');
+    function login() {
+        fetch('/login', {
+            method: 'POST',
+            body: loginFieldInput.value
+        })
+        .then(response => response.text())
+        .then((answerText) => {
+            if (answerText === 'Exists') {
+                localStorage.setItem('user', loginFieldInput.value);
+                window.location.assign('/');
+            } else {
+                alert(answerText);
+            }
+        })
+    }
+</script>
+</html>

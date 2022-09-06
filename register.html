@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./common.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/imgs/logo.ico" type="image/x-icon">
+    <title>Register</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: #f7f7f7;
+        --blue-color: #45a5e3;
+    }
+    .main {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .RegButton {
+        background-color: var(--blue-color);
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+        padding: 12px 29px;
+        border-radius: 30px;
+        transition: opacity .1s linear;
+        margin-top: 30px;
+    }
+    .RegButton:hover {
+        opacity: 0.9;
+    }
+    .FieldInput {
+        border-width: 0;
+        border-style: solid;
+        border-color: grey;
+        border-bottom-width: 2px;
+        outline: none;
+        background-color: transparent;
+        padding: 5px 10px;
+        font-size: 16px;
+        width: 150px;
+    }
+    .FieldInput:focus {
+        border-color: var(--blue-color);
+    }
+    .FieldRaw {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        align-items: flex-end;
+    }
+
+</style>
+<body>
+    <div class="main">
+        <img src="./imgs/logo.webp" style="width: 120px">
+        <h3>Register in our telegram</h3>
+        <p style="text-align: center; color: red" id="error"></p>
+        <div>
+            <div class="FieldRaw">
+                <input class="FieldInput" placeholder="Phone number">
+            </div>
+            <div class="FieldRaw">
+                <input class="FieldInput" placeholder="Nickname">
+            </div>
+        </div>
+        <div class="RegButton">register</div>
+    </div>
+    <a style="position: absolute; bottom: 20px; right: 20px; cursor: pointer;" href="/login">To login</a>
+</body>
+<script>
+    const button = document.querySelector('.RegButton');
+    const error = document.querySelector('#error');
+    const [phoneInput, nickInput] = document.querySelectorAll('.FieldInput');
+    button.addEventListener('click', () => {
+        const data = {
+            phone: phoneInput.value,
+            nick: nickInput.value
+        };
+        console.log(data);
+        fetch('/reg', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(answer => {
+            if (answer.type === 'success') {
+                error.style.color = 'green';
+            } else {
+                error.style.color = 'red';
+            }
+            error.innerHTML = answer.msg;
+        });
+    })
+
+
+</script>
+</html>

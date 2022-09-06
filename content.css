@@ -1,0 +1,259 @@
+
+.Content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.Content__header {
+    height: 56px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px rgba(114,114,114,0.168627);
+    display: flex;
+    /* to be upper then background */
+    z-index: 1; 
+}
+.Content__headerChatInfo {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.Content__headerIcons {
+    display: flex;
+    align-items: center;
+}
+.Content__headerIcons i {
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    cursor: pointer;
+    transition: background-color .2s linear;
+    border-radius: 50%;
+}
+.Content__headerIcons i:hover {
+    background-color: rgba(223, 223, 223, 0.795);
+}
+.Content__headerChatInfoAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.Content__headerChatInfoText {
+    margin-left: 12px;
+}
+.Content__headerChatInfoText h1 {
+    font-size: 18px;
+    margin: 0;
+}
+.Content__headerChatInfoText span {
+    font-size: 14px;
+    white-space: nowrap;
+    color: rgb(112,117,121) ;
+}
+.Content__body {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}   
+.Content__bodyBackImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./imgs/background.png');
+    background-size: contain;
+    opacity: 0.5;
+}
+.Content__bodyBackImageSecond {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./imgs/background2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay
+}
+
+.Content__alignCenterBlock {
+    width: 600px;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+.Content__messages {
+    overflow-y: auto;
+    height: 1px;
+    flex-grow: 1;
+    padding: 40px 0;
+}
+.Content__messages::-webkit-scrollbar {
+    width: 0;
+}
+.Content__newMessage {
+    display: flex;
+    margin-bottom: 15px;
+}
+.Content__newMessageArea {
+    width: 100px;
+    height: 56px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px 15px 0 15px;
+    flex-grow: 1;
+    box-shadow: 0 1px 2px rgba(114,114,114,0.25098);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.Content__newMessageRecord {
+    width: 56px;
+    height: 56px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color linear .1s, color linear .1s;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+.Content__newMessage .Content__newMessageIcon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.Content__newMessageSvg {
+    align-self: flex-end;
+    position: relative;
+    top: 3px;
+}
+
+.Content__newMessageRecord:hover {
+    color:rgb(255, 255, 255);
+    background-color: var(--color-primary);
+}
+
+.Content__newMessageRecord .Content__newMessageIcon {
+    position: absolute;
+}
+
+.Content__newMessageInput {
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    margin: 0 10px;
+}
+
+.Content__messageTime {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+}
+.Content__message--my .Content__messageTime {
+    color: rgb(79, 174, 78);
+}
+.Content__message--your .Content__messageTime {
+    color: rgba(104, 108, 114, 0.75);
+}
+
+.Content__messageText {
+    margin-right: 40px;
+}
+
+.Content__messageRaw {
+    display: flex;
+    margin-top: 10px;
+}
+.Content__message {
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+}
+.Content__yourMessage {
+    justify-content: flex-start;
+} 
+.Content__myMessage {
+    justify-content: flex-end;
+}
+
+.Content__message--my {
+    border-radius: 12px 12px 0 12px;
+    background-color: #eeffde;
+}
+.Content__myMessageSvg {
+    align-self: flex-end;
+    position: relative;
+    top: 3px;
+}
+
+.Content__message--your {
+    border-radius: 12px 12px 12px 0;
+}
+.Content__yourMessageSvg {
+    align-self: flex-end;
+    position: relative;
+    top: 3px;
+    transform: scale(-1, 1);
+}
+
+.Content__myMessageSvg path {
+    fill: #eeffde;
+}
+
+/* Когда нужен микрофон */
+.record.Content__newMessageRecord .fa-microphone {
+    animation: grow-icon .4s ease-in;
+}
+.record.Content__newMessageRecord .fa-paper-plane-o {
+    animation: hide-icon .4s ease-in forwards;
+}
+
+/* Когда нужен конверт */
+.send.Content__newMessageRecord .fa-microphone {
+    animation: hide-icon .4s ease-in forwards;
+}
+.send.Content__newMessageRecord .fa-paper-plane-o {
+    animation: grow-icon .4s ease-in;
+}
+
+
+
+
+@keyframes grow-icon {
+    0% {
+        transform: scale(0.5);
+        opacity: .8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hide-icon {
+    0% {
+        transform: scale(1);
+        opacity: .4;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}

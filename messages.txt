@@ -1,0 +1,21 @@
+{"id":1662376003960,"text":"13413123","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:6"}
+{"id":1662376079145,"text":"gergergerg","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:7"}
+{"id":1662376349857,"text":"Hi","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:12"}
+{"id":1662376362803,"text":"How are you?","ourNumber":"676767","sobesednik":"Nick 777777","time":"14:12"}
+{"id":1662376372081,"text":"I am fine!","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:12"}
+{"id":1662376376431,"text":"I am fine!","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:12"}
+{"id":1662376379827,"text":"I am fine!","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:12"}
+{"id":1662376382807,"text":"I am fine!","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:13"}
+{"id":1662376386814,"text":"Hi","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:13"}
+{"id":1662376481109,"text":"34","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:14"}
+{"id":1662376519980,"text":"454545","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:15"}
+{"id":1662376524618,"text":"egegerg","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:15"}
+{"id":1662376530522,"text":"ebsrthsrthsrth","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:15"}
+{"id":1662376537415,"text":"hello","ourNumber":"777777","sobesednik":"Dima 676767","time":"14:15"}
+{"id":1662376648258,"text":"Hello","ourNumber":"89996683327","sobesednik":"Dima 676767","time":"14:17"}
+{"id":1662376659445,"text":"Hi bro","ourNumber":"676767","sobesednik":"Alonso 89996683327","time":"14:17"}
+{"id":1662376667273,"text":"How are you?","ourNumber":"89996683327","sobesednik":"Dima 676767","time":"14:17"}
+{"id":1662376673964,"text":"Fine thanks","ourNumber":"676767","sobesednik":"Alonso 89996683327","time":"14:17"}
+{"id":1662376678790,"text":"Have a nice day","ourNumber":"676767","sobesednik":"Alonso 89996683327","time":"14:17"}
+{"id":1662376717872,"text":"helo","ourNumber":"89996683327","sobesednik":"Dima 676767","time":"14:18"}
+{"id":1662376725376,"text":"ergergegt","ourNumber":"676767","sobesednik":"Alonso 89996683327","time":"14:18"}
