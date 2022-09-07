@@ -78,7 +78,7 @@ const requestListener = function (req, res) {
         res.end(); 
     } else if(req.url.includes('imgs')) {
         const mimeType = req.url.split('.')[1];
-        const file = path.join(process.cwd(), 'imgs', req.url.slice(1))
+        const file = path.join(process.cwd(), 'imgs', req.url.slice(6))
         // console.log(file, mimeType);
         const image = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "image/" + mimeType});  
