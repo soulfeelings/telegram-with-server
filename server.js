@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const path = require('path');
 const mock = require('./mock');
 
 const host = 'localhost';
@@ -9,7 +10,8 @@ const messages = {};
 
 const requestListener = function (req, res) {
     if (req.url === '/') {
-        const html = fs.readFileSync('./index.html');
+        const file = path.join(process.cwd(), 'index.html')
+        const html = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/html"});  
         res.write(html);  
         res.end(); 
@@ -20,7 +22,8 @@ const requestListener = function (req, res) {
         res.end(); 
     } else if(req.url === '/login') {
         if (req.method === 'GET') {
-            const html = fs.readFileSync('./login.html');
+            const file = path.join(process.cwd(), 'login.html')
+            const html = fs.readFileSync(file);
             res.writeHeader(200, {"Content-Type": "text/html"});  
             res.write(html);  
             res.end(); 
