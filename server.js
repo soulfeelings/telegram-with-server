@@ -3,7 +3,7 @@ const fs = require("fs");
 const mock = require('./mock');
 
 const host = 'localhost';
-const port = process.env.PORT || 8000;
+const port = 3000;
 
 const messages = {};
 
