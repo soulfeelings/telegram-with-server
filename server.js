@@ -16,7 +16,8 @@ const requestListener = function (req, res) {
         res.write(html);  
         res.end(); 
     } else if(req.url === '/register') {
-        const html = fs.readFileSync('./register.html');
+        const file = path.join(process.cwd(), 'register.html')
+        const html = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/html"});  
         res.write(html);  
         res.end(); 
@@ -46,33 +47,39 @@ const requestListener = function (req, res) {
         }
         
     } else if(req.url === '/sidebarLeft.css') {
-        const css = fs.readFileSync('./sidebarLeft.css');
+        const file = path.join(process.cwd(), 'sidebarLeft.css')
+        const css = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/css"});  
         res.write(css);  
         res.end(); 
     } else if(req.url === '/content.css') {
-        const css = fs.readFileSync('./content.css');
+        const file = path.join(process.cwd(), 'content.css')
+        const css = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/css"});  
         res.write(css);  
         res.end(); 
     } else if(req.url === '/common.css') {
-        const css = fs.readFileSync('./common.css');
+        const file = path.join(process.cwd(), 'common.css')
+        const css = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/css"});  
         res.write(css);  
         res.end(); 
     } else if(req.url === '/mock.js') {
-        const js = fs.readFileSync('./mock.js');
+        const file = path.join(process.cwd(), 'mock.js')
+        const js = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "application/javascript"});  
         res.write(js);  
         res.end(); 
     } else if(req.url === '/script.js') {
-        const js = fs.readFileSync('./script.js');
+        const file = path.join(process.cwd(), 'script.js')
+        const js = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "application/javascript"});  
         res.write(js);  
         res.end(); 
     } else if(req.url.includes('imgs')) {
         const mimeType = req.url.split('.')[1];
-        const image = fs.readFileSync('.' + req.url);
+        const file = path.join(process.cwd(), req.url.slice(1))
+        const image = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": mimeType});  
         res.write(image);  
         res.end(); 
@@ -134,7 +141,8 @@ const requestListener = function (req, res) {
             res.end(JSON.stringify(answer));            
         })
     } else {
-        const html = fs.readFileSync('./error.html');
+        const file = path.join(process.cwd(), 'error.html')
+        const html = fs.readFileSync(file);
         res.writeHeader(200, {"Content-Type": "text/html"});  
         res.write(html);  
         res.end();
@@ -149,17 +157,19 @@ server.listen(port, host, () => {
 
 // userString -> Sasha 123123
 function addUserToFile(userString) {
-    const usersFromFile = fs.readFileSync("./users.txt", "utf8");
+    const file = path.join(process.cwd(), 'users.txt')
+    const usersFromFile = fs.readFileSync(file, "utf8");
 
     if (!usersFromFile) {
-        fs.writeFileSync("./users.txt", userString)
+        fs.writeFileSync(file, userString)
     } else {
-        fs.writeFileSync("./users.txt", usersFromFile + "\n" + userString)
+        fs.writeFileSync(file, usersFromFile + "\n" + userString)
     }
 }
 
 function getUsersFromFile() {
-    const usersFromFile = fs.readFileSync("./users.txt", "utf8");
+    const file = path.join(process.cwd(), 'users.txt')
+    const usersFromFile = fs.readFileSync(file, "utf8");
 
     if (usersFromFile === '') {
         return [];
@@ -184,7 +194,8 @@ function checkUserInFile(phone) {
 }
 
 function getAllMessages() {
-    const messages = fs.readFileSync("./messages.txt", "utf8");
+    const file = path.join(process.cwd(), 'messages.txt')
+    const messages = fs.readFileSync(file, "utf8");
     if (!messages) {
         return [];
     }
@@ -226,7 +237,7 @@ function getMessagesByPhone(our, his) {
 }
 
 function saveMessageToFile(msg) {
-    const fileName = "./messages.txt";
+    const fileName = path.join(process.cwd(), 'messages.txt')
     const messages = fs.readFileSync(fileName, "utf8");
 
     if (!messages) {
