@@ -79,8 +79,9 @@ const requestListener = function (req, res) {
     } else if(req.url.includes('imgs')) {
         const mimeType = req.url.split('.')[1];
         const file = path.join(process.cwd(), req.url.slice(1))
+        // console.log(file, mimeType);
         const image = fs.readFileSync(file);
-        res.writeHeader(200, {"Content-Type": mimeType});  
+        res.writeHeader(200, {"Content-Type": "image/" + mimeType});  
         res.write(image);  
         res.end(); 
     } else if(req.url.includes('/messages')) {
@@ -104,6 +105,7 @@ const requestListener = function (req, res) {
             req.on('end', () => {
                 saveMessageToFile(data);
             })
+            res.end();
         } else {
             res.end('[]');
         }
